@@ -1,0 +1,14 @@
+UAV DATASET REPORT
+========================================
+Root: datasets\uav
+RGB jpg: 1000 | PNG masks: 1000 | matched: 1000
+Missing masks: 0 | Missing images: 0 | Corrupt: 0
+RGB sizes: {'224x224': 1000} modes: {'RGB': 1000}
+Mask sizes: {'224x224': 1000} modes: {'L': 1000}
+Mask unique values: [0, 1, 2, 3, 4]
+Pixel fraction per value: {0: 0.28541, 1: 0.05195, 2: 0.12101, 3: 0.45269, 4: 0.08894}
+Images containing value: {0: 870, 1: 470, 2: 471, 3: 955, 4: 484}
+Manifest groups: {'water': 500, 'rust': 500}
+Values by group (pixel counts): {'water': {0: 9643868, 1: 2606726, 2: 6071554, 3: 6765852}, 'rust': {0: 4677074, 3: 15948397, 4: 4462529}}
+NOTE: the README does NOT define the numeric class IDs. Map values to names yourself
+after looking at masks_viz/ and the per-group table above; record it in configs/uav_classes.yaml.

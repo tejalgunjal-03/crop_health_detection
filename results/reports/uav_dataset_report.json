@@ -1,0 +1,67 @@
+{
+  "root": "datasets\\uav",
+  "n_rgb": 1000,
+  "n_masks": 1000,
+  "n_matched": 1000,
+  "missing_masks": [],
+  "missing_images": [],
+  "corrupt": [],
+  "rgb_sizes": {
+    "224x224": 1000
+  },
+  "rgb_modes": {
+    "RGB": 1000
+  },
+  "mask_sizes": {
+    "224x224": 1000
+  },
+  "mask_modes": {
+    "L": 1000
+  },
+  "mask_unique_values": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "pixel_count_per_value": {
+    "0": 14320942,
+    "1": 2606726,
+    "2": 6071554,
+    "3": 22714249,
+    "4": 4462529
+  },
+  "pixel_fraction_per_value": {
+    "0": 0.28541,
+    "1": 0.05195,
+    "2": 0.12101,
+    "3": 0.45269,
+    "4": 0.08894
+  },
+  "images_containing_value": {
+    "0": 870,
+    "1": 470,
+    "2": 471,
+    "3": 955,
+    "4": 484
+  },
+  "groups_in_manifest": {
+    "water": 500,
+    "rust": 500
+  },
+  "values_by_group": {
+    "water": {
+      "0": 9643868,
+      "1": 2606726,
+      "2": 6071554,
+      "3": 6765852
+    },
+    "rust": {
+      "0": 4677074,
+      "3": 15948397,
+      "4": 4462529
+    }
+  },
+  "npy_files_present_but_unused": 1000
+}

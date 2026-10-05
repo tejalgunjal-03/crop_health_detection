@@ -1,0 +1,19 @@
+# UAV mask class mapping.
+# STATUS: INFERRED, not stated by the dataset. The dataset README has no legend.
+# Evidence (see results/reports/uav_dataset_report.txt and masks_viz colours):
+#   0 -> dark grey, in both 'water' and 'rust' groups            => soil / background
+#   1 -> orange,   only in 'water' group                         => low water stress
+#   2 -> red,      only in 'water' group                         => high water stress
+#   3 -> green,    in both groups, largest area                  => healthy vegetation
+#   4 -> purple,   only in 'rust' group                          => rust infection
+# Values 0, 3, 4 are well supported. Which of 1/2 is "low" vs "high" is only a
+# colour-convention guess. Verify against the dataset authors before publishing.
+status: inferred
+classes:
+  0: {name: soil_background,   label: "Soil / background",   color: [60, 60, 60]}
+  1: {name: low_water_stress,  label: "Low water stress",    color: [255, 165, 0]}
+  2: {name: high_water_stress, label: "High water stress",   color: [255, 0, 0]}
+  3: {name: healthy_vegetation,label: "Healthy vegetation",  color: [0, 200, 0]}
+  4: {name: rust,              label: "Rust infection",      color: [160, 32, 240]}
+# Classes that are highlighted as "suspicious / affected" in the field map.
+suspicious_class_ids: [0, 1, 2, 4]

@@ -1,0 +1,71 @@
+# DATA FUSION RULES  (Leaf analysis + Weather ONLY -- UAV output is never an input)
+#
+# IMPORTANT: every number below is a PROJECT-DEFINED rule for demonstration.
+# They are NOT universal agronomic thresholds and have not been validated
+# against field trials. Edit them freely; the engine reads this file at runtime.
+
+labels:               # final_score -> overall condition (upper bounds, exclusive)
+  healthy_below: 0.15
+  mild_below: 0.35
+  moderate_below: 0.55          # >= this => "Severe/Critical"
+
+min_reliable_confidence: 0.60   # top-class probability below this => "Inconclusive"
+
+# How risky each leaf class is by itself (0 = none, 1 = maximum).
+# Leaf risk = sum over classes of probability * base_risk.
+leaf_base_risk:
+  Healthy: 0.00
+  Common Rust: 0.40
+  Blight: 0.50
+  Gray Leaf Spot: 0.50
+
+# Weather conditions considered "favourable" to each disease (project-defined).
+# Each criterion is checked only if the weather value is available.
+weather_favourability:
+  Common Rust:
+    temperature_c: [15, 27]
+    humidity_pct: [70, 100]
+    rainfall_mm: [0.1, 1000]
+  Blight:
+    temperature_c: [18, 28]
+    humidity_pct: [75, 100]
+    rainfall_mm: [0.1, 1000]
+  Gray Leaf Spot:
+    temperature_c: [22, 32]
+    humidity_pct: [75, 100]
+    rainfall_mm: [0.1, 1000]
+
+# For a diseased leaf:  final = leaf_risk + weather_weight * (favourable_fraction - 0.5)
+# i.e. fully favourable weather adds +weather_weight/2, fully unfavourable subtracts it.
+weather_weight: 0.20
+# Flat extra stress added when temperature is above this value (any leaf class).
+heat_stress_c: 35
+heat_stress_bonus: 0.05
+
+severity_by_condition:
+  Healthy: None
+  Mild Stress: Low
+  Moderate Stress: Moderate
+  Severe/Critical: High
+  Inconclusive: Unknown
+
+recommendations:      # general and safe: no pesticide names, doses or schedules
+  common:
+    - "Consult a local agricultural expert or extension officer before taking treatment decisions."
+    - "Follow locally recommended agricultural practices."
+  Healthy:
+    - "Continue regular monitoring of the field."
+    - "Re-check after significant weather changes (prolonged wetness, heat)."
+  Mild Stress:
+    - "Inspect nearby plants for similar symptoms."
+    - "Monitor the field regularly over the next days."
+  Moderate Stress:
+    - "Inspect affected plants and neighbouring rows soon."
+    - "Review irrigation and field drainage conditions."
+    - "Monitor weather; humid and wet periods can favour spread of leaf diseases."
+  Severe/Critical:
+    - "Inspect the field promptly to see how widespread the symptoms are."
+    - "Consider isolating or marking the affected area for follow-up."
+    - "Seek advice from a local agricultural expert as soon as possible."
+  Inconclusive:
+    - "The model was not confident. Upload a clearer, well-lit close-up of a single leaf and try again."

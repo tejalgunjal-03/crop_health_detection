@@ -1,0 +1,48 @@
+{
+  "root": "datasets\\leaf\\data",
+  "classes": [
+    "Blight",
+    "Common_Rust",
+    "Gray_Leaf_Spot",
+    "Healthy"
+  ],
+  "total_valid": 4188,
+  "per_class": {
+    "Blight": 1146,
+    "Common_Rust": 1306,
+    "Gray_Leaf_Spot": 574,
+    "Healthy": 1162
+  },
+  "formats": {
+    "JPEG": 4183,
+    "PNG": 4,
+    "MPO": 1
+  },
+  "color_modes": {
+    "RGB": 4183,
+    "RGBA": 4,
+    "CMYK": 1
+  },
+  "n_distinct_sizes": 266,
+  "top_sizes": {
+    "256x256": 3852,
+    "1024x768": 8,
+    "3264x2448": 7,
+    "675x1200": 7,
+    "1200x1600": 5
+  },
+  "corrupt": [],
+  "non_image_files": [],
+  "exact_duplicate_groups": 2,
+  "duplicate_examples": [
+    [
+      "datasets\\leaf\\data\\Blight\\Corn_Blight (1104).jpg",
+      "datasets\\leaf\\data\\Gray_Leaf_Spot\\Corn_Gray_Spot (564).jpg"
+    ],
+    [
+      "datasets\\leaf\\data\\Blight\\Corn_Blight (77).jpg",
+      "datasets\\leaf\\data\\Gray_Leaf_Spot\\Corn_Gray_Spot (19).jpg"
+    ]
+  ],
+  "imbalance_ratio_max_over_min": 2.275
+}

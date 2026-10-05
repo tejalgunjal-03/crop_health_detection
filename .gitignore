@@ -1,0 +1,15 @@
+.env
+*.db
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+frontend/dist/
+datasets/leaf/
+datasets/uav/
+uploads/*
+!uploads/.gitkeep
+results/uav/
+models/**/*.pth
+.pytest_cache/
